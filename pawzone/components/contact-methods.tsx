@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react'
+import { Phone, MapPin, MessageSquare } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 
 const contactMethods = [

@@ -4,6 +4,7 @@ import { TagFilter } from "@/components/tag-filter"
 import { Newsletter } from "@/components/newsletter"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from 'next/image'
 
 const featuredArticle = {
   title: "宝儿、岚仔、板栗",
@@ -66,10 +67,11 @@ export default function Home() {
           {popularArticles.map((article) => (
             <Link href={`/blog/${article.slug}`} key={article.slug} className="flex gap-4 items-center">
               <div className="flex-shrink-0 w-24 h-24 relative">
-                <img
+                <Image
                   src={article.image}
-                  alt=""
-                  className="rounded-lg object-cover w-full h-full"
+                  alt={article.title}
+                  fill
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div>
