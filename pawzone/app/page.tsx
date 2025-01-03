@@ -1,3 +1,5 @@
+'use client'
+
 import { SearchBar } from "@/components/search-bar"
 import { ArticleCard } from "@/components/article-card"
 import { TagFilter } from "@/components/tag-filter"
@@ -5,6 +7,7 @@ import { Newsletter } from "@/components/newsletter"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from 'next/image'
+import { useState } from 'react'
 
 const featuredArticle = {
   title: "宝儿、岚仔、板栗",
@@ -38,14 +41,46 @@ const popularArticles = [
 const articles = [
   {
     title: "10 Cat Training Tips Every Cat Owner Should Know",
-    image: "/cat-training-tips.png",
+    image: "/posts/cat-training-tips.png",
     tags: ["Cat", "Training"],
     slug: "cat-training-tips"
   },
+  {
+    title: "9 Cat Training Tips Every Cat Owner Should Know",
+    image: "/posts/cat-training-tips-1.png",
+    tags: ["Cat", "Training"],
+    slug: "cat-training-tips-1"
+  },
+  {
+    title: "8 Cat Training Tips Every Cat Owner Should Know",
+    image: "/posts/cat-training-tips-2.png",
+    tags: ["Cat", "Training"],
+    slug: "cat-training-tips-2"
+  },
+  {
+    title: "7 Cat Training Tips Every Cat Owner Should Know",
+    image: "/posts/cat-training-tips-3.png",
+    tags: ["Cat", "Training"],
+    slug: "cat-training-tips-3"
+  },
+  
   // ... other articles
 ]
 
+const ARTICLES_PER_PAGE = 3; // 修改为每页显示3篇文章（3列 x 1行）
+
 export default function Home() {
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  // 计算总页数
+  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+  
+  // 获取当前页的文章
+  const currentArticles = articles.slice(
+    (currentPage - 1) * ARTICLES_PER_PAGE,
+    currentPage * ARTICLES_PER_PAGE
+  );
+
   return (
     <div className="container mx-auto px-4 py-8">
       <section className="text-center mb-12">
@@ -94,7 +129,7 @@ export default function Home() {
       <TagFilter />
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        {articles.map((article) => (
+        {currentArticles.map((article) => (
           <ArticleCard
             key={article.slug}
             {...article}
@@ -103,11 +138,16 @@ export default function Home() {
       </section>
 
       <div className="flex justify-center gap-2 mb-12">
-        <Button variant="outline" className="w-8 h-8 p-0">1</Button>
-        <Button variant="outline" className="w-8 h-8 p-0">2</Button>
-        <Button variant="outline" className="w-8 h-8 p-0">3</Button>
-        <Button variant="outline" className="w-8 h-8 p-0">4</Button>
-        <Button variant="outline" className="w-8 h-8 p-0">5</Button>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+          <Button
+            key={pageNumber}
+            variant={currentPage === pageNumber ? "default" : "outline"}
+            className="w-8 h-8 p-0"
+            onClick={() => setCurrentPage(pageNumber)}
+          >
+            {pageNumber}
+          </Button>
+        ))}
       </div>
 
       <Newsletter />
