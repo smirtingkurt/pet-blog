@@ -71,15 +71,28 @@ const ARTICLES_PER_PAGE = 3; // 修改为每页显示3篇文章（3列 x 1行）
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedTag, setSelectedTag] = useState("All");
   
+  // 添加筛选逻辑
+  const filteredArticles = articles.filter(article => {
+    if (selectedTag === "All") return true;
+    return article.tags.includes(selectedTag);
+  });
+
   // 计算总页数
-  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+  const totalPages = Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE);
   
   // 获取当前页的文章
-  const currentArticles = articles.slice(
+  const currentArticles = filteredArticles.slice(
     (currentPage - 1) * ARTICLES_PER_PAGE,
     currentPage * ARTICLES_PER_PAGE
   );
+
+  // 添加标签切换处理函数
+  const handleTagSelect = (tag: string) => {
+    setSelectedTag(tag);
+    setCurrentPage(1); // 重置到第一页
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -126,7 +139,10 @@ export default function Home() {
         </div>
       </div>
 
-      <TagFilter />
+      <TagFilter 
+        selectedTag={selectedTag}
+        onTagSelect={handleTagSelect}
+      />
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {currentArticles.map((article) => (

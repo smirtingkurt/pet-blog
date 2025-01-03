@@ -5,4 +5,4 @@ date: "2025-01-01"
 
 宝儿、岚仔、板栗都是猪咪
 
-![alt text](/three-cats.png)
+![alt text](/posts/three-cats-1.png)
