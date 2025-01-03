@@ -4,4 +4,4 @@ date: "2025-01-01"
 ---
 
 呼呼大睡
-![alt text](../public/cat-training-tips.png)
+![alt text](/posts/cat-training-tips.png)

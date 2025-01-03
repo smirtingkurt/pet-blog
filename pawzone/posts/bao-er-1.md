@@ -5,4 +5,4 @@ date: "2025-01-01"
 
 宝儿是猪咪
 
-![alt text](2024_0808_17171400.jpg)
+![alt text](/posts/posts-baoer-1.jpg)

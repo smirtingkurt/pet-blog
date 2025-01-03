@@ -5,4 +5,4 @@ date: "2025-01-01"
 
 板栗是猪咪
 
-![alt text](LS20250102090909.png)
+![alt text](/posts/posts-banli-1.png)

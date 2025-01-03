@@ -5,4 +5,4 @@ date: "2025-01-01"
 
 岚仔是猪咪
 
-![alt text](2023_0618_22572900.jpg)
+![alt text](/posts/posts-lanzai-1.jpg)
