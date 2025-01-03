@@ -1,6 +1,6 @@
 import { Cat } from 'lucide-react'
-import { ProductCard } from "./product-card"
-import { TestimonialCard } from "./testimonial-card"
+import { ProductCard } from "@/components/product-card"
+import { TestimonialCard } from "@/components/testimonial-card"
 
 const products = [
   {
