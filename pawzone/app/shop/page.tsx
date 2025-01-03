@@ -11,7 +11,7 @@ const products = [
   {
     name: "猫干粮",
     price: 99,
-    image: "/products/dry-food.jpg"
+    image: "/products/dry-food.png"
   },
   {
     name: "猫零食",
@@ -49,13 +49,14 @@ export default function ShopPage() {
             我们为每一种产品都提供多种选择。快为您可爱的猫咪挑选心仪的商品吧。
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {products.map((product) => (
             <ProductCard
               key={product.name}
               name={product.name}
               price={product.price}
               image={product.image}
+              className="mx-auto"
             />
           ))}
         </div>
