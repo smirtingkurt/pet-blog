@@ -11,10 +11,11 @@ interface ProductCardProps {
 export function ProductCard({ image, name, price, className }: ProductCardProps) {
   return (
     <div className={cn("group relative rounded-2xl overflow-hidden", className)}>
-      <div className="aspect-square overflow-hidden">
+      <div className="w-64 h-64 overflow-hidden">
         <Image
           src={image}
           alt={name}
+          layout="responsive"
           width={400}
           height={400}
           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
