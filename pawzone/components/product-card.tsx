@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 interface ProductCardProps {
@@ -11,9 +12,11 @@ export function ProductCard({ image, name, price, className }: ProductCardProps)
   return (
     <div className={cn("group relative rounded-2xl overflow-hidden", className)}>
       <div className="aspect-square overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={name}
+          width={400}
+          height={400}
           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
         />
       </div>
