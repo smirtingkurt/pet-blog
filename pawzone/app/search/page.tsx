@@ -58,7 +58,7 @@ export default function SearchPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-bold mb-2">搜索结果</h1>
         <p className="text-gray-600">
-          关键词 "{query}" 找到 {searchResults.length} 个结果
+          关键词 &quot;{query}&quot; 找到 {searchResults.length} 个结果
         </p>
       </div>
 
